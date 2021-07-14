@@ -1,0 +1,744 @@
+let admin, name;
+name = "John";
+
+admin = name;
+alert(admin);
+
+let ourPlanetName;
+let currentUserName;
+
+const BIRTHDAY = 18.04.1992;
+const AGE = someCode(BIRTHDAY);
+
+// 1.   variaveis var variables nao tem um escopo de bloco, 
+//      sua visibilidade é limitada a função atual ou global, 
+//      se for declarada fora da funçao
+
+// 2.   declaracoes em var sao processadas no começo da funçao, 
+//      ou começo do script para globais
+
+// 3.   let nao e visivel fora de um if ou função
+
+// tipos de dados (undefined, number, bigint, boolean, null, string, symbol, object)
+
+// variaveis nao sao fixadas a algum tipo, podem mudar
+// NaN é um erro computacional, ou seja, uma string multiplicando
+// um numero ou algo do tipo. 
+// BigInt é para numeros enormes. Para declarar um é preciso de um n no final do numero.
+const bigInt = 1234567890123456789012345678901234567890n;
+
+let str1 = "hello";
+let str2 = 'hello';
+let str3 = `hello`; // nao funciona no internet explorer
+let strPhrase = "pode ter outra string dentro ${str1}"; // pode ter outra string dentro hello
+// ou qualquer outra coisa como expressoes aritmeticas
+let result = "o resultado é ${1 + 2}"; // o resultado é 3
+
+// o valor "null" nao é relacionado a um objeto nao existente
+// representa nada, vazio, sem valor conhecido
+
+// o valor "undefined" significa "nao foi dado valor da variavel"
+let age;
+alert(age); // "undefined"
+
+// é possivel dar o valor "undefined", mas normalmente é utilizado 
+// null para quando é preciso de um valor vazio
+
+// typeof é um operador que retorna o tipo de dado de uma variavel
+typeof x    // operador
+typeof(x)   // função
+
+// sao 8 tipos de dados em javascript
+// number para todos os tipos de numeros: inteiro, decimal, limitado por ±(253-1)
+
+// bigint para numeros inteiros de tamanho arbitrario
+
+// string para strings.A string pode ter um ou mais caracteres, 
+//      nao ha um tipo diferente para caracter no singular
+
+// boolean para true/false, muito utilizado em comparações.
+
+// null para valores desconhecidos pelo programador
+
+// undefined para valores nao assinados pelo programador
+
+// object para tipos de dados mais complexos
+
+// symbol para identificadores unicos
+
+//
+
+// numbers
+
+// numeros grandes podem ser escrito com notacao cientifica
+var x = 123e5; // 12300000
+var y = 123e-5 // 0.00123
+
+// a precisao de inteiros é de 15 digitos
+var x = 999999999999999;   // x sera 999999999999999
+var y = 9999999999999999;  // y sera 10000000000000000
+
+// a quantia de decimais é de 17, mas não é preciso
+var x = 0.2 + 0.1;         // x sera 0.30000000000000004
+
+// para minimizar o problema acima, é melhor multiplicar e dividir
+var x = (0.2 * 10 + 0.1 * 10) / 10;       // x sera 0.3
+// ou usar toFixed(quantididadde_de_numeros_apos_a_virgula)
+var x = 0.2 + 0.1
+var xFixed = x.toFixed(1) // xFixed sera 0.3
+
+//
+
+// operadores aritméticos
+
+// + adiçao
+// - subtraçao
+// * multiplicaçao
+// ** exponenciaçao
+// / divisao
+// % resto da divisao
+// ++ increment
+// -- decrement 
+
+// ++ e -- podem ser usados antes ou depois de uma variavel. 
+// como prefixo, o novo valor é printado
+let counter = 0;
+alert( ++counter ); //  1
+
+//como sufixo, o valor anterior é printado
+let counter = 0;
+alert( counter++ ); // 0
+
+// para transformar string em number, é possivel usar a funcao Number
+let meuNumero = '5';
+meuNumero + 3; // resultado é 53, concatenaçao de string com number
+// usando Number()
+let outroNumero = '6'
+Number(outroNumero) + 5; // resultado é 11
+// outro jeito é colocar + como prefixo
+let outroNumero = '6'
++outroNumero + 5;  // resultado é 11
+
+// operadores de atribuiçao
+
+// x += y significa	x = x + y
+// x -= y significa	x = x - y
+// x *= y significa	x = x * y
+// x /= y significa	x = x / y
+// x %= y significa	x = x % y
+// x **= y significa	x = x ** y
+
+//
+
+// operadores de comparaçao (os exemplos retornam true)
+
+// == igual
+3 == '3'
+// != nao igual
+4 != 3
+// === igual e de mesmo tipo
+'3' === '3'
+// !== nao iguais ou nao de mesmo tipo
+3 !== '3'
+// > maior que
+// >= maior ou igual que
+// < menor que
+// <= menor ou igual que 
+
+// 
+
+// string
+
+// para escapar alguns caracteres dentro de uma string é usado o \
+let bigmouth = 'I\'ve got no right to take my place...';
+bigmouth;
+
+// existem outros jeitos para escapar outros caracteres https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#escape_notation
+
+// Number() converte string em number, toString() faz o contrario
+
+// para nao ser confuso concatenar strings e ter diversos "'`, melhor usar ${} (placeholder)
+// a diferença é que é preciso usar ` ` (crase) 
+// uma string assim se chama template literal
+output = 'I like the song "' + song + '". I gave it a score of ' + (score/highestScore * 100) + '%.';
+
+output = `I like the song "${ song }". I gave it a score of ${ score/highestScore * 100 }%.`;
+
+// o metodo length da o tamanho da string
+let browserType = 'mozilla';
+browserType.length;
+
+// toda string é um array. é possivel pedir uma letra com []
+browserType[0]; // b
+
+// juntando length com array...
+browserType[browserType.length-1]; // a, o ultimo caractere
+
+// indexOf() retorna o lugar que começa uma substring dentro da string
+browserType.indexOf('zilla'); // 2, começa no z
+
+// slice() corta da string inicial (mozilla)
+browserType.slice(0,3); // moz
+
+// se só um parametro for passado, corta ate o final
+browserType.slice(2); // zilla
+
+// toLowerCase() toUpperCase()
+browserType.toUpperCase();
+
+// replace();
+browserType.replace('moz','van'); // vanilla
+
+// trim() remove espaço em branco
+var str = "       Hello World!        ";
+str = str.trim();           // result is Hello World!
+
+// padStart() e padEnd() coloca zeros antes ou depois
+let str = "5";
+str = str.padStart(4,0);    // result is 0005
+
+// charAt() retorna um caractere em dada posição.
+// é o mesmo que tratar a string como array
+var str = "HELLO WORLD";
+str.charAt(0);              // returns H
+str[0];                     // returns H
+
+// charCodeAt() retorna o unicode do caractere em dada posiçao
+var str = "HELLO WORLD";
+str.charCodeAt(0);         // returns 72
+
+// split() transforma string em array de caracteres
+
+// transformando uma lista com nomes para nomes com Capitalização Certa
+const list = document.querySelector('.output ul');
+list.innerHTML = '';
+let cities = ['lonDon', 'ManCHESTer', 'BiRmiNGHAM', 'liVERpoOL'];
+
+for (let i = 0; i < cities.length; i++) {
+  let input = cities[i];
+  let city = input.toLowerCase();
+  let initial = city.slice(0,1);
+  let capitalized = city.replace(initial,initial.toUpperCase());
+  let result = capitalized;
+  let listItem = document.createElement('li');
+  listItem.textContent = result;
+  list.appendChild(listItem);
+}
+// London
+// Manchester
+// Birmingham
+// Liverpool
+
+// retirando a sigla e o nome de uma string maior
+const list = document.querySelector('.output ul');
+list.innerHTML = '';
+let stations = ['MAN675847583748sjt567654;Manchester Piccadilly',
+                'GNF576746573fhdg4737dh4;Greenfield',
+                'LIV5hg65hd737456236dch46dg4;Liverpool Lime Street',
+                'SYB4f65hf75f736463;Stalybridge',
+                'HUD5767ghtyfyr4536dh45dg45dg3;Huddersfield'];
+
+for (let i = 0; i < stations.length; i++) {
+  let input = stations[i];
+  let code = input.slice(0,3);
+  let semiC = input.indexOf(';');
+  let name = input.slice(semiC + 1);
+  let result = code + ': ' + name;
+  let listItem = document.createElement('li');
+  listItem.textContent = result;
+  list.appendChild(listItem);
+} 
+// MAN: Manchester Piccadilly
+// GNF: Greenfield
+// LIV: Liverpool Lime Street
+// SYB: Stalybridge
+// HUD: Huddersfield
+
+// if else
+if (condition1) {
+    //  block of code to be executed if condition1 is true
+  } else if (condition2) {
+    //  block of code to be executed if the condition1 is false and condition2 is true
+  } else {
+    //  block of code to be executed if the condition1 is false and condition2 is false
+}
+
+if (value > 0) {
+    alert('1');
+    } else if (value < 0{
+    alert("-1");
+    } else {
+    alert("0");
+    }
+}
+
+// operadores lógicos
+
+// ou ||
+let hour = 12;
+let isWeekend = true;
+
+if (hour < 10 || hour > 18 || isWeekend) {
+  alert( 'The office is closed.' ); // it is the weekend
+}
+
+// e &&
+
+// não !
+// ??
+
+// switch () {}
+switch (expression) {
+    case choice1:
+      run this code
+      break;
+    case choice2:
+      run this code instead
+      break;
+    // include as many cases as you like
+    default:
+      actually, just run this code
+    // default roda se nenhum outro caso acontecer
+}
+
+// 87 para no primeiro case
+
+const grade = 87;
+
+switch (true) {
+    // If score is 90 or greater
+    case grade >= 90:
+        console.log("A");
+        break;
+    // If score is 80 or greater
+    case grade >= 80:
+        console.log("B");
+        break;
+    // If score is 70 or greater
+    case grade >= 70:
+        console.log("C");
+        break;
+    // If score is 60 or greater
+    case grade >= 60:
+        console.log("D");
+        break;
+    // Anything 59 or below is failing
+    default:
+        console.log("F");
+}
+
+// operador ternário '?'
+variavel = ( condition ) ? run this code : run this code instead
+// definida a condição, roda um codigo se for true, outro se for false
+let result = (a + b < 4) ? 'Below' : 'Over';
+
+// funçoes
+
+// há tipos diferentes de funçoes
+
+// o mais comum é funçao elevada (hoisted), pois pode ser chamada antes 
+// de ser criada
+
+myGreeting();
+
+function myGreeting() { 
+  alert('hello');
+}
+
+// funçao nao elevada nao pode ser chamada antes
+// é construida com const/var/let
+const myGreeting = function() {
+  alert('hello');
+}
+
+// funçao anonima nao tem nome e é usada no local, mas pode ser chamada
+const anonFunction = function() {
+  alert('hello');
+}
+
+// arrow function
+let funcName = (arg1, arg2, ..., argN) => expression
+//uma funçao que aceita arg1..argN, calcula a expressao e retorna o resultado
+//é a versao curta de:
+let funcName = function(arg1, arg2, ..., argN) {
+  return expression;
+};
+// também pode ser escrita similar a operador ternaŕio
+let age = prompt("What is your age?", 18);
+let welcome = (age < 18) ?
+  () => alert('Hello') :
+  () => alert("Greetings!");
+welcome();
+// e também como funçao anonima
+const funkyFunction = (music, isWhiteBoy) => {
+  if (isWhiteBoy) {
+    console.log('Play: ' +  music);
+  }
+}
+
+
+
+
+// 
+
+// parametro de funçao
+// parametro pode ser chamado de argumento, propriedade ou atributo
+// algumas funçoes nao precisam de parametros
+let myNumber = Math.random();
+// outras precisam de 1 ou mais parametros, separados por virgula
+let myText = 'I am a string';
+let newString = myText.replace('string', 'sausage');
+
+// retornar valor da funçao
+function random(number) {
+  return Math.floor(Math.random() * number);
+}
+
+// arrays
+array.length; da o tamanho do array
+array[length - 1]; retorna o ultimo elemento 
+array.forEach(); faz um loop em todos os elementos // nao funciona em browser antigo
+array.toString(); transforma,em,string,desse,jeito
+
+array.join(); faz o , só que pode mudar o separador
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.join("; ");
+resultado: Banana; Orange; Apple; Mango
+
+// funçao para certificar se é um array
+function isArray(x) {
+  return x.constructor.toString().indexOf("Array") > -1;
+}
+
+array.pop(); remove o ultimo elemento do array
+array.push(); adiciona um elemento no index[length] (último)
+array.shift(); remove o primeiro elemento e troca a index de todos os outros
+array.unshift(); adiciona um elemento no index 0 e aumenta o index de todos os outros elementos
+delete fruits[0]; muda o index[0] para undefined // melhor não usar
+
+array.splice(); adiciona e/ou remove elementos
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(2, 0, "Lemon", "Kiwi");
+// 2 - index onde os elementos serao adicionados
+// 0 - quantos elementos serao removidos
+// o restante dos parametros sao os elementos a serem adicionados
+
+array1.concat(array2); merge dois arrays
+array1.concat("atemoya"); adiciona um valor a um array
+array.slice(2); corta um array começando no index 2 e faz um outro array
+array.slice(1,3); corta um array começando no 1, nao incluindo o 3, e faz outro array
+
+array.sort();  ordena os elementos em ordem alfabetica
+array.reverse(); inverte a ordem do array
+
+// funçao compare
+// function(a, b){return a - b}
+var points = [40, 100, 1, 5, 25, 10];
+points.sort(function(a, b){return a - b}); // ordena numericamente
+points[0]; tem o menor valor //nao é eficiente para arrays grandes
+points[length - 1]; tem o maior valor //nao é eficiente para arrays grandes
+
+// valor maximo
+function myArrayMax(arr) {
+  return Math.max.apply(null, arr);
+}
+
+// valor minimo 
+function myArrayMin(arr) {
+  return Math.min.apply(null, arr);
+}
+
+// ordenar array de modo aleatorio (metodo fisher yates)
+var points = [40, 100, 1, 5, 25, 10];
+
+for (i = points.length -1; i > 0; i--) {
+  j = Math.floor(Math.random() * i)
+  k = points[i]
+  points[i] = points[j]
+  points[j] = k
+}
+
+// ordenar arrays de objetos
+var cars = [
+  {type:"Volvo", year:2016},
+  {type:"Saab", year:2001},
+  {type:"BMW", year:2010}
+];
+
+function myFunction() {
+  cars.sort(function(a, b){return a.year - b.year}); // ordenaçao crescente numerica
+  displayCars();
+}
+
+// objetos (dicionário)
+// *
+
+// loops
+// for
+for (initializer; condition; final-expression) {
+// code to run
+//
+for (let i = 0; i < cats.length; i++) {
+  if (i === cats.length - 1) {
+    info += 'and ' + cats[i] + '.';
+  } else {
+    info += cats[i] + ', ';
+  }
+}
+//
+
+// while
+initializer
+while (condition) {
+  // code to run
+
+  final-expression
+}
+//
+const output = document.querySelector('.output');
+output.innerHTML = '';
+
+let i = 10;
+
+while(i >= 0) {
+  let para = document.createElement('p');
+  
+  if(i === 10) {
+  para.textContent = 'Countdown ' + i;
+  } else if(i === 0) {
+  para.textContent = 'Blast off!';
+  } else {
+  para.textContent = i;
+  }
+  output.appendChild(para);
+  i--;
+}
+//
+
+// do while
+initializer
+do {
+  // code to run
+
+  final-expression
+} while (condition)
+//
+let i = 0;
+
+do {
+  if (i === cats.length - 1) {
+    info += 'and ' + cats[i] + '.';
+  } else {
+    info += cats[i] + ', ';
+  }
+
+  i++;
+} while (i < cats.length);
+//
+
+// DOM
+//selecionar nodes
+<div id="container">
+  <div class="display"></div>
+</div>
+// em css
+div.display //. para classe
+.display
+#container > .display //# para id
+div#container > div.display
+// em js
+const container = document.querySelector('#container'); // seleciona o #container div
+console.dir(container.firstElementChild); // seleciona o primeiro filho of #container => .display
+const display = document.querySelector('.display'); // seleciona o  .display div
+console.dir(display.previousElementSibling); // seleciona o parente anterior => .display
+
+const div = document.createElement('div'); // cria um elemento na memoria, nao é visivel
+nodePai.appendChild(nodeFilho) // anexa o nodeFilho como ultimo filho do nodePai
+nodePai.insertBefore(nodeFilho, nodeReferencia) // anexa o nodeFilho no nodePai antes do nodeReferencia
+
+nodePai.nodeFilho(filho) // remove o nodeFilho do nodePai no DOM e retorna a referencia Filho
+
+const div = document.createElement('div'); // cria um novo div referenciado à variavel "div"
+
+div.style.color = 'blue'; // adiciona o estilo indicado
+div.style.cssText = 'color: blue; background: white'; // adiciona varios estilos
+div.setAttribute('style', 'color: blue; background: white'); // adiciona varios estilos
+
+div.style.backgroundColor // acessa o estilo de background-color do div
+div.style['background-color'] // tambem funciona
+
+div.setAttribute('id', 'theDiv'); // se o atributo 'id' existe, muda para 'theDiv'. Ou cria o atributo 'theDiv'.
+div.getAttribute('id'); // retorna o valor especificado do atributo
+div.removeAttribute('id'); // remove o atributo
+
+div.classList.add('new'); // adds class "new" to your new div
+div.classList.remove('new'); // remove "new" class from div
+div.classList.toggle('active'); // if div doesn't have class "active" then add it, or if it does, then remove it
+// é melhor usar toggle sempre que possível
+
+div.textContent = 'Hello World!' // creates a text node containing "Hello World!" and inserts it in div
+// usar .innerHTML NÃO É SEGURO. 
+
+// eventos
+//metodo 1
+<!-- the html file -->
+<button id="btn">Click Me</button>
+
+// the JavaScript file
+const btn = document.querySelector('#btn');
+btn.onclick = () => alert("Hello World");
+// so pode ter uma propriedade 'onclick'
+
+// metodo 2
+<!-- the html file -->
+<button id="btn">Click Me Too</button>
+
+// the JavaScript file
+const btn = document.querySelector('#btn');
+btn.addEventListener('click', () => {
+  alert("Hello World");
+});
+// pode ter mais de uma propriedade
+
+//
+
+// objetos
+
+// objetos tem várias propriedades. cada propriedade tem uma chave e um valor
+let user = {     // objeto
+  name: "John",  // chave "name" tem o valor "John"
+  age: 30,        // chave "age" tem o valor 30
+};
+
+// pegar propriedade de um objeto:
+alert( user.name ); // John
+alert( user.age ); // 30
+
+// adicionar propriedade:
+user.isAdmin = true;
+
+// deletar propriedade:
+delete user.age;
+
+// é possível usar mais de uma palavra para a chave, mas é necessário aspas
+let user = {
+  name: "John",
+  age: 30,
+  "likes birds": true,  // 
+};
+
+// para acessar uma chave com varias palavras é trocado o . por [""]
+let user = {};
+// set
+user["likes birds"] = true;
+// get
+alert(user["likes birds"]); // true
+// delete
+delete user["likes birds"];
+
+// a ultima propriedade precisa de virgula no final
+let user = {
+  name: "John",
+  age: 30,
+}
+
+// [] em runtime pode ser usado para acessar alguma propriedade
+let user = {
+  name: "John",
+  age: 30
+};
+let key = prompt("What do you want to know about the user?", "name");
+// access by variable
+alert( user[key] ); // John (if enter "name")
+
+//. não funciona do mesmo jeito
+let user = {
+  name: "John",
+  age: 30
+};
+let key = "name";
+alert( user.key ) // undefined
+
+// propriedade computada
+let fruit = prompt("Which fruit to buy?", "apple");
+let bag = {
+  [fruit]: 5, // the name of the property is taken from the variable fruit
+};
+alert( bag.apple ); // 5 if fruit="apple"
+
+// [] são bem mais poderosos que . pois permitem qualquer nome ou valor de 
+// propriedades, mas também sao mais chatos de escrever. na maioria das vezes,
+// quando as propriedades sao conhecidas e simples, o . é mais usado
+
+// valor da propriedade abreviado
+// quando um objeto é feito com o uso de argumentos que tem o mesmo nome da variavel, podem ser abreviados
+function makeUser(name, age) {
+  return {
+    name: name,
+    age: age,                      // exemplo nao abreviado
+    // ...other properties
+  };
+}
+
+function makeUser(name, age) {
+  return {
+    name, // same as name: name   // exemplo abreviado
+    age,  // same as age: age
+    // ...
+  };
+}
+
+// é possivel usar abreviado e nao abreviado no mesmo objeto
+function makeUser(name, age) {
+  return {
+    name, // same as name: name
+    age,  // same as age: age
+    // ...
+  };
+}
+
+// in
+let user = { name: "John", age: 30 };
+alert( "age" in user ); // true, user.age exists
+alert( "country" in user ); // false, user.country doesn't exist
+
+// for..in
+// percorre todos as chaves dentro do objeto
+let user = {
+  name: "John",
+  age: 30,
+  isAdmin: true
+};
+for (let key in user) {
+  // keys
+  alert( key );  // name, age, isAdmin
+  // values for the keys
+  alert( user[key] ); // John, 30, true
+}
+
+// ordem dos atributos
+// os atributos começados com numero vem primeiro e em ordem 
+// crescente, depois as strings em ordem de criação
+// para evitar isso, basta colocar um + nos numeros, assim todos
+// os atributos aparecem em ordem de criação
+
+const ratings = watchList.map(item => ({
+  title: item["Title"],
+  rating: item["imdbRating"]
+}));
+
+//no html
+<button type="button" onclick="clicou(this)">Clique aqui</button> *(this refere ao proprio elemento)
+    <p id ="agradecimento" onclick="redirecionar()"></p>
+//
+
+function clicou(elemento){
+    //document.getElementById("agradecimento").innerHTML = "<b>Obrigado por clicar!</b>";
+    elemento.innerHTML = "<b>Obrigado por clicar!</b>";
+}
+
+function redirecionar(){
+    //window.open("https:github.com/atemoia");
+    elemento.innerHTML = 
+}
+
